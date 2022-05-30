@@ -18,7 +18,6 @@ export default function LoginForm() {
 
     const { email, password } = inputs;
     let history = useHistory();
-    const { error, loading, isAuthenticated } = useSelector(state => state.user)
 
     const dispatch = useDispatch();
 
@@ -28,25 +27,14 @@ export default function LoginForm() {
         dispatch(login(email, password))
     }
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            notifySuccess('you are already logged In!')
-            history.push('/')
-        }
-        if (error) {
-            notifyError('please enter a valid email or password')
-            dispatch(clearError())
-        }
-    }, [dispatch, isAuthenticated, history, error])
-
+   
     const onChange = (e) => {
         setInputs({ ...inputs, [e.target.name]: e.target.value });
     }
 
     return (
         <Fragment>
-            {loading ?
-                (<Loading />) : (
+           
                     <Fragment>
                         <MetaData title='login' />
                         <div className='allTypeFormPage'>
@@ -60,13 +48,11 @@ export default function LoginForm() {
                                     <div className="form__control">
                                         <label htmlFor="username">Email</label>
                                         <input type="text" id="email" name="email" value={inputs.email} onChange={onChange} />
-                                        {err.email && <p className='validateError'>{err.email}</p>}
                                     </div>
                                     <div className="form__control password">
                                         <label htmlFor="password">Password</label>
                                         <input type={passeye ? "text" : "password"} id="password" className="password" name="password" value={inputs.password} onChange={onChange} />
                                         <span onClick={() => setPasseye(!passeye)} >{passeye ? <VisibilityIcon /> : <VisibilityOffIcon />}</span>
-                                        {err.password && <p className='validateError'>{err.password}</p>}
                                     </div>
                                     <div className='form__control'>
                                         <Link to='/password/forgot'>forget password</Link>
@@ -76,8 +62,7 @@ export default function LoginForm() {
                             </div>
                         </div>
                     </Fragment>
-                )
-            }
+                
             <ToastContainer />
         </Fragment>
     )

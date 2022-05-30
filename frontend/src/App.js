@@ -39,66 +39,25 @@ import AboutUs from "./screens/More/AboutUs";
 import ForgotPassSuccess from "./screens/User/ForgotPassSuccess";
 
 function App() {
-  const { isAuthenticated } = useSelector(state => state.user)
-  const [stripeApiKey, setStripeApiKey] = useState('');
-  const url = '/api/sendStripeApiKey'
-
-  const getStripeApiKey = async () => {
-    if (isAuthenticated) {
-      const { data } = await axios.get(url,
-        {
-          withCredentials: true
-        });
-      setStripeApiKey(data.stripeApiKey);
-    }
-  }
-
-  getStripeApiKey()
-  useEffect(() => {
-    store.dispatch(loggedInUser());
-    keepTheme();
-  }, []);
-
+  
+  
+ 
+  
+ 
   // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
     <Router>
       <Header />
       <div className="app" >
-        {stripeApiKey && (
-          <Elements stripe={loadStripe(stripeApiKey)}>
-            <ProtectedRoute path='/process/payment' component={Payment} />
-          </Elements>
-        )}
+        
         <Switch>
-          <Route exact path='/' component={Home} />
-          <ProtectedRoute isAdmin={true} exact path='/dashboard' component={Dashboard} />
-          <ProtectedRoute exact path='/account' component={UserProfile} />
-          <ProtectedRoute exact path='/me/password/update' component={UpdatePassword} />
-          <ProtectedRoute exact path='/me/update' component={UpdateProfile} />
-          <Route exact path='/password/reset/:token' component={ResetPassword} />
           <Route exact path='/password/forgot' component={ForgotPassword} />
-          <Route exact path='/product/:id' component={Productdetails} />
           <Route exact path='/forgot/:id' component={ForgotPassSuccess} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/cart' component={Checkout} />
           <Route exact path='/about' component={AboutUs} />
-          <ProtectedRoute exact path='/shipping' component={Shipping} />
-          <ProtectedRoute exact path='/order/confirm' component={ConfirmOrder} />
-          <ProtectedRoute exact path='/order/success' component={OrdersSuccess} />
-          <ProtectedRoute exact path='/orders' component={MyOrders} />
-          <ProtectedRoute exact path='/order/:id' component={MyOrderDetails} />
-          <Route exact path='/:keyword' component={Home} />
-          <ProtectedRoute isAdmin={true} exact path='/dashboard' component={Dashboard} />
-          <ProtectedRoute isAdmin={true} exact path='/admin/products' component={ProductList} />
-          <ProtectedRoute isAdmin={true} exact path='/admin/product/new' component={NewProductAdd} />
-          <ProtectedRoute isAdmin={true} exact path='/admin/product/:id' component={UpdateProduct} />
-          <ProtectedRoute isAdmin={true} exact path='/admin/orders' component={AllOrders} />
-          <ProtectedRoute isAdmin={true} exact path='/admin/users' component={AllUser} />
-          <ProtectedRoute isAdmin={true} exact path='/admin/u/:id' component={UserDetails} />
-          <ProtectedRoute isAdmin={true} exact path='/admin/u/order/:id' component={UpdateOrderStatus} />
-
+          
         </Switch>
       </div>
       <Footer />
