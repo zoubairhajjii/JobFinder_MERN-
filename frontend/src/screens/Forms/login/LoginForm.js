@@ -19,11 +19,7 @@ export default function LoginForm() {
 
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setErr(formValidate(inputs))
-        dispatch(login(email, password))
-    }
+    
 
    
     const onChange = (e) => {
@@ -42,7 +38,7 @@ export default function LoginForm() {
                                     <p>Not have an account ? <Link to='/signup'>signup</Link></p>
                                 </div>
                                 <span></span>
-                                <form id="login__form" className="formClass" method="POST" onSubmit={handleSubmit}>
+                                <form id="login__form" className="formClass" method="POST">
                                     <div className="form__control">
                                         <label htmlFor="username">Email</label>
                                         <input type="text" id="email" name="email" value={inputs.email} onChange={onChange} />

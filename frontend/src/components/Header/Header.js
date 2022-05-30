@@ -6,13 +6,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuIcon from '@mui/icons-material/Menu';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import NightsStayIcon from '@mui/icons-material/NightsStay';
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch, useSelector } from 'react-redux'
-import { logout, clearError } from '../../Redux/actions/userActions'
 import SearchBar from '../search/SearchBar';
-import { notifySuccess } from '../../utils/alerts/Alerts'
 
 export default function Header() {
     const dispatch = useDispatch();

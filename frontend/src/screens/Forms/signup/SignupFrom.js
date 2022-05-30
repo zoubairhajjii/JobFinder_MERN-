@@ -5,12 +5,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { clearError, register } from '../../../Redux/actions/userActions'
-import { notifySuccess } from '../../../utils/alerts/Alerts';
 import { ToastContainer } from 'react-toastify';
-import formValidate from '../validation/FormValidation';
 import MetaData from '../../../utils/title/MetaData';
-import Loading from '../../../components/loaders/Loading';
 
 export default function SignupForm() {
     const history = useHistory();
