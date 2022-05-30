@@ -4,8 +4,6 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { login, clearError } from '../../../Redux/actions/userActions';
-import { notifyError, notifySuccess } from '../../../utils/alerts/Alerts';
 import formValidate from '../validation/FormValidation';
 import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../utils/title/MetaData';

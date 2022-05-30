@@ -3,7 +3,7 @@ import './AboutUs.css';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
-import image from '../../images/about-img.png'
+import img from '../../images/about-img.png'
 import MetaData from '../../utils/title/MetaData';
 
 const AboutUs = () => {
@@ -13,7 +13,7 @@ const AboutUs = () => {
             <div className='AboutPage'>
                 <div className="about__cart">
                     <div className="about__image">
-                        <img src={image} alt="" />
+                        <img src={img} alt="" />
                     </div>
 
                     <div className="about__content">
