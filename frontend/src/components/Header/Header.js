@@ -32,9 +32,7 @@ export default function Header() {
                     <Link to='/'>
                         <div className="nav__option">Home</div>
                     </Link>
-                    <Link to='/orders'>
-                        <div className="nav__option">Orders</div>
-                    </Link>
+                   
                     <Link to='/about'>
                         <div className="nav__option">AboutUs</div>
                     </Link>

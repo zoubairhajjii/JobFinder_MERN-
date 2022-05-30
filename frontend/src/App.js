@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/Header/Header'
 import Footer from './components/footer/Footer'
 import Login from './screens/Forms/login/LoginForm'
 import Signup from "./screens/Forms/signup/SignupFrom";
-
+import {Switch}  from "react-router-dom";
 import AboutUs from "./screens/More/AboutUs";
 
 function App() {

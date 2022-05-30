@@ -1,30 +1,47 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import '../AllForm.css'
-import { useHistory } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../utils/title/MetaData';
+import {useHistory}  from "react-router-dom";
+import {Registration} from "../../../redux/actions/authAction"
 
 export default function SignupForm() {
-    const history = useHistory();
+    const Navigate = useHistory()
+
     const [passeye, setPasseye] = useState(false);
     const [err, setErr] = useState({})
     const [avatar, setAvatar] = useState('/profile.png');
-
-    const [inputs, setInputs] = useState({ name: '', email: '', password: '', confirmPassword: '' });
-
-    const { name, email, password, confirmPassword } = inputs;
-
     const dispatch = useDispatch();
+    const  [data,setData]=useState({
+        name:'',
+        prenom:'',
+        email:'',
+        password:'',
+        Telephone:'',
+        Profession:'',
+        Adresse:'',
+        Age:'' ,     
+        position:'',
+        tarif:'',
+        role:''
+      })
+      const onChange=(e)=>{
+        setData({
+          ...data,[e.target.name]:e.target.value }) }
+    
+    
+          const handleSubmit = (e)=>{
+            e.preventDefault();
+            dispatch(Registration(data,Navigate))
 
    
 
-    const onChange = (e) => {
-        setInputs({ ...inputs, [e.target.name]: e.target.value });
-    }
+    
+          }
 
     return (
         <Fragment>
@@ -38,35 +55,62 @@ export default function SignupForm() {
                                         <h2>Signup</h2>
                                         <p>Already have an account ? <Link to='/Login'>login</Link></p>
                                     </div>
-                                    <form id="signup__form" className="formClass" method="POST" >
+                                    <form id="signup__form" className="formClass" method="POST" onSubmit={handleSubmit}  >
                                         <div className="form__control">
                                             <label htmlFor="name">name</label>
-                                            <input type="text" id="name" name="name" value={inputs.name} onChange={onChange} maxLength='40' />
+                                            <input type="text" id="name" name="name" value={data.name} onChange={onChange} maxLength='40' />
                                            
                                         </div>
                                         <div className="form__control">
-                                            <label htmlFor="name">Email</label>
-                                            <input type="text" id="email" name="email" value={inputs.email} onChange={onChange} />
+                                            <label htmlFor="prenom">prenom</label>
+                                            <input type="text" id="prenom" name="prenom" value={data.prenom} onChange={onChange} />
                                            
                                         </div>
                                         <div className="form__control">
-                                            <label htmlFor="profile">profile image</label>
-                                            {<p className='validateError img'>{'*image should be < 100kb'}</p>}
-                                            <input type="file"
-                                                name="avatar"
-                                                id='profile'
-                                                accept="image/*"  />
-
+                                            <label htmlFor="email">email</label>
+                                            <input type="text" id="email" name="email" value={data.email} onChange={onChange} />
+                                           
                                         </div>
                                         <div className="form__control password">
-                                            <label htmlFor="password">Password</label>
-                                            <input type={passeye ? "text" : "password"} id="password" className="password" name="password" value={inputs.password} onChange={onChange} minLength='8' />
+                                            <label htmlFor="password">password</label>
+                                            <input type={passeye ? "text" : "password"} id="password" className="password" name="password" value={data.password} onChange={onChange} minLength='8' />
                                             <span onClick={() => setPasseye(!passeye)} >{passeye ? <VisibilityIcon /> : <VisibilityOffIcon />}</span>
                                         </div>
-                                        <div className="form__control password">
-                                            <label htmlFor="confirmPassword">Confirm Password</label>
-                                            <input type={passeye ? "text" : "password"} id="confirmPassword" className="confirmPassword" name="confirmPassword" value={inputs.confirmPassword} onChange={onChange} />
-                                            <span onClick={() => setPasseye(!passeye)} >{passeye ? <VisibilityIcon /> : <VisibilityOffIcon />}</span>
+                                       
+                                        <div className="form__control">
+                                            <label htmlFor="Telephone">Telephone</label>
+                                            <input type="text" id="Telephone" name="Telephone" value={data.Telephone} onChange={onChange} />
+                                           
+                                        </div>
+                                        <div className="form__control">
+                                            <label htmlFor="Profession">Profession</label>
+                                            <input type="text" id="Profession" name="Profession" value={data.Profession} onChange={onChange} />
+                                           
+                                        </div>
+                                        <div className="form__control">
+                                            <label htmlFor="Adresse">Adresse</label>
+                                            <input type="text" id="Adresse" name="Adresse" value={data.Adresse} onChange={onChange} />
+                                           
+                                        </div>
+                                        <div className="form__control">
+                                            <label htmlFor="Age">Age</label>
+                                            <input type="text" id="Age" name="Age" value={data.Age} onChange={onChange} />
+                                           
+                                        </div>
+                                        <div className="form__control">
+                                            <label htmlFor="position">position</label>
+                                            <input type="text" id="position" name="position" value={data.position} onChange={onChange} />
+                                           
+                                        </div>
+                                        <div className="form__control">
+                                            <label htmlFor="tarif">tarif</label>
+                                            <input type="text" id="tarif" name="tarif" value={data.tarif} onChange={onChange} />
+                                           
+                                        </div>
+                                        <div className="form__control">
+                                            <label htmlFor="role">role</label>
+                                            <input type="text" id="role" name="role" value={data.role} onChange={onChange} />
+                                           
                                         </div>
                                         <button className='formSubmitBtn' >Register</button>
                                     </form>

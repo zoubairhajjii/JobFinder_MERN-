@@ -16,7 +16,7 @@ const AboutUs = () => {
                     </div>
 
                     <div className="about__content">
-                        <h3>best food in the country</h3>
+                        <h3>best service in the country</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, sequi corrupti corporis quaerat voluptatem ipsam neque labore modi autem, saepe numquam quod reprehenderit rem? Tempora aut soluta odio corporis nihil!</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, nemo. Sit porro illo eos cumque deleniti iste alias, eum natus.</p>
                         <div className="aboutCart__icons">
