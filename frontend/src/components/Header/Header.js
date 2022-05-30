@@ -2,7 +2,6 @@ import React, { useState, useEffect, Fragment } from 'react'
 import './Header.css'
 import { Link } from "react-router-dom";
 import { setTheme } from '../../utils/theme/Theme';
-import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -27,7 +26,7 @@ export default function Header() {
         <Fragment>
             <div className='header d__flex'>
                 <Link to="/">
-                    <div className="header__logo d__flex"><AssuredWorkloadIcon />JobFinder</div>
+                    <div className="header__logo d__flex">JobFinder</div>
                 </Link>
                 <div className={hamburger ? "nav__list d__flex" : " nav__list d__flex hamburger__open"}>
                     <Link to='/'>
