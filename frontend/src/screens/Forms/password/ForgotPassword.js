@@ -2,8 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import MetaData from '../../utils/title/MetaData'
-import Loading from '../../components/loaders/Loading'
 
 const ForgotPassword = () => {
     const [inputs, setInputs] = useState({ email: '' });
@@ -16,7 +14,7 @@ const ForgotPassword = () => {
         <Fragment>
            
                 <Fragment>
-                    <MetaData title='forgot-password' />
+                   
                     <div className="allTypeFormPage">
                         <div className='mainFormContainer'>
                             <div className="form__header">

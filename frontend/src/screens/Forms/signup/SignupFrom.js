@@ -13,7 +13,6 @@ export default function SignupForm() {
     const Navigate = useHistory()
 
     const [passeye, setPasseye] = useState(false);
-    const [err, setErr] = useState({})
     const [avatar, setAvatar] = useState('/profile.png');
     const dispatch = useDispatch();
     const  [data,setData]=useState({
@@ -23,10 +22,7 @@ export default function SignupForm() {
         password:'',
         Telephone:'',
         Profession:'',
-        Adresse:'',
         Age:'' ,     
-        position:'',
-        tarif:'',
         role:''
       })
       const onChange=(e)=>{
@@ -97,16 +93,7 @@ export default function SignupForm() {
                                             <input type="text" id="Age" name="Age" value={data.Age} onChange={onChange} />
                                            
                                         </div>
-                                        <div className="form__control">
-                                            <label htmlFor="position">position</label>
-                                            <input type="text" id="position" name="position" value={data.position} onChange={onChange} />
-                                           
-                                        </div>
-                                        <div className="form__control">
-                                            <label htmlFor="tarif">tarif</label>
-                                            <input type="text" id="tarif" name="tarif" value={data.tarif} onChange={onChange} />
-                                           
-                                        </div>
+                                        
                                         <div className="form__control">
                                             <label htmlFor="role">role</label>
                                             <input type="text" id="role" name="role" value={data.role} onChange={onChange} />

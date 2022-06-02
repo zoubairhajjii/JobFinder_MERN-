@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
+const bcrypt = require('bcrypt');
+const crypto = require('crypto')
 const UserSchema = mongoose.Schema({
   name: { type: String, required: true },
   prenom: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   Telephone: { type: String, required: true, unique: true },
-
   Profession: String,
   Adresse: String,
   Age: String,
-  position: String,
-  tarif: String,
   photo_profil: String,
   role: {
     type: String,
@@ -19,4 +17,5 @@ const UserSchema = mongoose.Schema({
     default: "Demandeur",
   },
 });
-module.exports =mongoose.model("user", UserSchema);
+
+module.exports = mongoose.model('user', UserSchema);

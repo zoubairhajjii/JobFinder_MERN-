@@ -72,14 +72,11 @@ export default function LoginForm() {
                                 value={password}
                             />
                             <div className='form__control'>
-                                <Link to='/password/forgot'>forget password</Link>
+                                <Link to='/forgotpassword'>forget password</Link>
                             </div>
                             <Button
                                 className='formSubmitBtn'
                                 type='submit'
-                              
-                              
-                               
                                 onClick={(e) => {
                                     e.preventDefault(e);
                                     dispatch(LoginAction({ email, password }, Navigate))

@@ -6,8 +6,10 @@ import Footer from './components/footer/Footer'
 import Login from './screens/Forms/login/LoginForm'
 import Signup from "./screens/Forms/signup/SignupFrom";
 import {Switch}  from "react-router-dom";
-import AboutUs from "./screens/More/AboutUs";
-
+import AboutUs from "./screens/about/AboutUs";
+import ForgotPassword from "./screens/Forms//password/ForgotPassword"
+import ResetPassword from "./screens/Forms//password/ResetPassword"
+import Homee from "./screens/home/Homee";
 function App() {
   
   
@@ -25,6 +27,11 @@ function App() {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/about' component={AboutUs} />
+          <Route exact path='/homee' component= {Homee} />
+          <Route exact path='/forgotpassword' component= {ForgotPassword} />
+          <Route exact path='/ResetPassword' component= {ResetPassword} />
+
+          
           
         </Switch>
       </div>

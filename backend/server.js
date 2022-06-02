@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const ConnectDb = require("./config/ConnectDb");
 const AuthRoute = require("./routes/auth");
 const ServiceRoute = require("./routes/service");
@@ -7,9 +8,12 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 const DemandeRoute = require("./routes/demande");
 const FeedbackRoute = require("./routes/Feedbacks");
+const passwordRoute = require("./routes/user");
 const app = express();
+
 app.use(express.json());
 ConnectDb();
+app.use("/api/password",passwordRoute)
 app.use("/api/auth", AuthRoute);
 app.use("/api/Service", ServiceRoute);
 app.use("/api/Demande", DemandeRoute);

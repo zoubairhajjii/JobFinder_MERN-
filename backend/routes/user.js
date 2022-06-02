@@ -1,19 +1,11 @@
-const { User, validate } = require("../models/user");
+const { forgotPassword, resetPassword } = require("../controllers/user/password");
 const express = require("express");
-const router = express.Router();
 
-router.post("/", async (req, res) => {
-    try {
-        const { error } = validate(req.body);
-        if (error) return res.status(400).send(error.details[0].message);
 
-        const user = await new User(req.body).save();
+const passwordRoute = express.Router();
 
-        res.send(user);
-    } catch (error) {
-        res.send("An error occured");
-        console.log(error);
-    }
-});
-
-module.exports = router;
+// user forgot password route
+passwordRoute.post('/forgot', forgotPassword)
+// user reset password route
+passwordRoute.put('/reset', resetPassword)
+module.exports = passwordRoute;

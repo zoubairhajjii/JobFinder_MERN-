@@ -29,7 +29,7 @@ export default function Header() {
                     <div className="header__logo d__flex">JobFinder</div>
                 </Link>
                 <div className={hamburger ? "nav__list d__flex" : " nav__list d__flex hamburger__open"}>
-                    <Link to='/'>
+                    <Link to='/homee'>
                         <div className="nav__option">Home</div>
                     </Link>
                    
