@@ -25,12 +25,7 @@ export const LoginAction = (user, Navigate)=>async (dispatch) =>{
     } catch (error) {
         dispatch({type :ERRORS ,payload:error.response.data})        
     }
-
-
-
 }
-
-
 export const Registration = (user, Navigate)=>async (dispatch)=>{
    
     try {
@@ -42,13 +37,10 @@ export const Registration = (user, Navigate)=>async (dispatch)=>{
          }
          else if(res.status===400){
              toast.error(res.data.msg)
-
          }
          else{
             toast.error(res.data.msg)
-
          }
-
     } catch (error) {
         dispatch({type :ERRORS ,payload:error.response.data})        
 

@@ -10,6 +10,7 @@ import AboutUs from "./screens/about/AboutUs";
 import ForgotPassword from "./screens/Forms//password/ForgotPassword"
 import ResetPassword from "./screens/Forms//password/ResetPassword"
 import Homee from "./screens/home/Homee";
+import ActivationEmail from "./screens/Forms/password/ActivationEmail";
 function App() {
   
   
@@ -28,14 +29,15 @@ function App() {
           <Route exact path='/login' component={Login} />
           <Route exact path='/about' component={AboutUs} />
           <Route exact path='/homee' component= {Homee} />
-          <Route exact path='/forgotpassword' component= {ForgotPassword} />
-          <Route exact path='/ResetPassword' component= {ResetPassword} />
+          <Route exact path='/password/forgot' component= {ForgotPassword} />
+          <Route exact path='/password/reset/:token' component={ResetPassword} />
+          <Route path="/user/activate/:activation_token" component={ActivationEmail} exact />
 
           
           
         </Switch>
       </div>
-      <Footer />
+    
     </Router>
   );
 }

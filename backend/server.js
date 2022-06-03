@@ -8,7 +8,7 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 const DemandeRoute = require("./routes/demande");
 const FeedbackRoute = require("./routes/Feedbacks");
-const passwordRoute = require("./routes/user");
+const passwordRoute = require("./routes/password");
 const app = express();
 
 app.use(express.json());

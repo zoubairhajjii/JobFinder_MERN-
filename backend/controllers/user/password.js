@@ -28,19 +28,41 @@ exports.forgotPassword= async (req, res) => {
         return res.status(500).json({msg: err.message})
     }
 },
-exports.resetPassword=async (req, res) => {
-    try {
-        const {password} = req.body
-        console.log(password)
-        const passwordHash = await bcrypt.hash(password, 12)
 
-        await UserSchema.findOneAndUpdate({_id: req.user.id}, {
-            password: passwordHash
-        })
+ exports.resetPassword=async (req, res) => {
+        try {
+            const {password} = req.body
+            console.log(password)
+            const passwordHash = await bcrypt.hash(password, 12)
 
-        res.json({msg: "Password successfully changed!"})
-    } catch (err) {
-        return res.status(500).json({msg: err.message})
+            await UserSchema.findOneAndUpdate({_id: req.user.id}, {
+                password: passwordHash
+            })
+
+            res.json({msg: "Password successfully changed!"})
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
     }
-    
-}
+   exports.activateEmail=async (req, res) => {
+        try {
+            const {activation_token} = req.body
+            const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET)
+
+            const {name, email, password} = user
+
+            const check = await UserSchema.findOne({email})
+            if(check) return res.status(400).json({msg:"This email already exists."})
+
+            const newUser = new UserSchema({
+                name, email, password
+            })
+
+            await newUser.save()
+
+            res.json({msg: "Account has been activated!"})
+
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    }

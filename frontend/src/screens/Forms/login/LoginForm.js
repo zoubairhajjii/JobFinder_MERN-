@@ -72,7 +72,7 @@ export default function LoginForm() {
                                 value={password}
                             />
                             <div className='form__control'>
-                                <Link to='/forgotpassword'>forget password</Link>
+                                <Link to='/password/forgot'>forget password</Link>
                             </div>
                             <Button
                                 className='formSubmitBtn'
