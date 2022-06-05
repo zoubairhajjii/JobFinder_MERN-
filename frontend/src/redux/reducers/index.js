@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import authReducer from './authReducer'
 import erreReducer from './erreReducer'
 import feedbackReducer from './feedbackReducer'
-import serviceReducer from './serviceReducer'
+import serviceReducer from './'
 import passwordReducer from "./passwordReducer"
 export default combineReducers({
     passwordReducer: passwordReducer,

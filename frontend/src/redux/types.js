@@ -1,5 +1,8 @@
 
 export const LOGIN_USER="LOGIN_USER"
+
+export const LOGIN_FAIL="LOGIN_FAIL"
+
 export const REGISTER_USER="REGISTER_USER"
 export const LOGAOUT_USER="LOGAOUT_USER"
 export const GET_CURRENT="GET_CURRENT"

@@ -11,6 +11,9 @@ import ForgotPassword from "./screens/Forms//password/ForgotPassword"
 import ResetPassword from "./screens/Forms//password/ResetPassword"
 import Homee from "./screens/home/Homee";
 import ActivationEmail from "./screens/Forms/password/ActivationEmail";
+import ProfileAdmin from "./screens/service/pages/ProfileAdmin";
+import ProfileProfissionell from "./screens/service/pages/ProfileProfissionell";
+import NewServiceAdd from "./screens/service/NewServiceAdd";
 function App() {
   
   
@@ -23,19 +26,15 @@ function App() {
     <Router>
       <Header />
       <div className="app" >
-        
-        <Switch>
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/about' component={AboutUs} />
-          <Route exact path='/homee' component= {Homee} />
-          <Route exact path='/password/forgot' component= {ForgotPassword} />
-          <Route exact path='/password/reset/:token' component={ResetPassword} />
-          <Route path="/user/activate/:activation_token" component={ActivationEmail} exact />
+        <NewServiceAdd />
+      
+
+
+          
 
           
           
-        </Switch>
+        
       </div>
     
     </Router>

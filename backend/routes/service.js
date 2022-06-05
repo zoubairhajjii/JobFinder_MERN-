@@ -9,7 +9,7 @@ const { isAuth } = require("../middlewares/isAuth");
 
 const ServiceRoute = express.Router();
 
-ServiceRoute.post("/addService", isAuth, addService);
+ServiceRoute.post("/addService", addService);
 ServiceRoute.get("/Services", isAuth, getService);
 ServiceRoute.delete("/deleteService/:id", isAuth, deleteService);
 ServiceRoute.put("/editService/:id", isAuth, editService);

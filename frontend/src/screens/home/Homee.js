@@ -6,6 +6,7 @@ import Pagination from "react-js-pagination";
 import SortIcon from '@mui/icons-material/Sort'
 import { Slider } from '@mui/material'
 import { ToastContainer } from 'react-toastify';
+import NewServiceAdd from '../service/NewServiceAdd';
 
 const categories = [
     "PLOMBIER",
@@ -107,6 +108,7 @@ const Home=()=>{
                             </div>
                             <ToastContainer />
                         </Fragment>
+                        <NewServiceAdd />
                   
 
           

@@ -25,11 +25,11 @@ export default function Header() {
     return (
         <Fragment>
             <div className='header d__flex'>
-                <Link to="/">
+                <Link to="/home">
                     <div className="header__logo d__flex">JobFinder</div>
                 </Link>
                 <div className={hamburger ? "nav__list d__flex" : " nav__list d__flex hamburger__open"}>
-                    <Link to='/homee'>
+                    <Link to='/home'>
                         <div className="nav__option">Home</div>
                     </Link>
                    
